@@ -1,0 +1,53 @@
+@import 'variables.scss';
+
+header {
+  display: block;
+  position: relative;
+  height: $fl-header-height;
+  width: 100%;
+}
+
+#header-outer {
+  display: inline-flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+
+  .logo-link {
+    padding: 5px 10px;
+    width: 120px;
+
+    .logo {
+      max-width: 120px;
+    }
+  }
+
+  .menu-outer {
+    height: 80px;
+
+    .menu {
+      display: flex;
+      flex-direction: row;
+      list-style-type: none;
+      padding-top: 40px;
+
+      .menu-item {
+        color: $fl-broken-white;
+        width: 250px;
+        text-align: center;
+
+        span {
+          font-family: Montserrat;
+          font-weight: 800;
+        }
+
+        span:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+
+

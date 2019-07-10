@@ -1,0 +1,68 @@
+@import '../variables.scss';
+
+.calendar-container {
+  display: grid;
+  min-height: 400px;
+  height: auto;
+  width: 600px;
+  grid-template-columns: repeat(7, auto);
+  grid-template-rows: 50px repeat(6, 35px);
+  grid-gap: 15px;
+  background-color: $fl-teal;
+  border: 3px solid $fl-broken-white;
+
+  .month-display {
+    grid-column: 1 / span 7;
+    background-color: $fl-dark-teal;
+    text-align: center;
+    position: relative;
+    padding: 10px;
+
+    span.left {
+      position: absolute;
+      left: 5px;
+      font-size: 20px;
+    }
+
+    span.right {
+      position: absolute;
+      right: 5px;
+      font-size: 20px;
+    }
+
+    span.left:hover, span.right:hover {
+      cursor: pointer;
+    }
+
+    span.disabled {
+      color: $fl-disabled;
+    }
+  }
+
+  div {
+    color: $fl-red;
+    font-family: Montserrat;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .date-field.weekend {
+    background-color: lightcoral;
+    border-radius: 100px;
+  }
+
+  .date-field.attendance {
+    background-color: yellow;
+  }
+
+  .date-field.active:hover {
+    background-color: $fl-dark-teal;
+    border-radius: 100px;
+    cursor: pointer;
+  }
+
+  .date-field.selected {
+    background-color: $fl-dark-teal;
+    border-radius: 100px;
+  }
+}

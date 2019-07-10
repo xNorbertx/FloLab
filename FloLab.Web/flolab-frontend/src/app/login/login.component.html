@@ -1,0 +1,12 @@
+<input type="button" value="prefill user" (click)="prefillUser();" />
+<form [formGroup]="loginForm" (ngSubmit)="login();" class="fl-login-form">
+  <div class="row-half centered">
+    <input id="login__email" formControlName="email" type="email" placeholder="Email"/>
+  </div>
+  <div class="row-half centered">
+    <input id="login__password" formControlName="password" type="password" placeholder="Password"/>
+  </div>
+  <div class="row-half centered">
+    <input type="submit" value="Log in" />
+  </div>
+</form>

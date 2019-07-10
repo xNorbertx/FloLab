@@ -1,0 +1,12 @@
+<form [formGroup]="bookingService.bookingForm" (ngSubmit)="finishBooking();" class="booking-container">
+  <div *ngIf="_nrDatesSelected > 0" class="booking-date">{{_nrDatesSelected}} dates selected</div>
+  <div formArrayName="bookingDates"
+       *ngFor="let date of bookingService.bookingForm.get('bookingDates').controls; let i = index;">
+    <div [formGroupName]="i">
+      <input formControlName="date" disabled>
+      <input formControlName="remark">
+    </div>
+  </div>
+
+  <button type="submit" class="btn-reservation">Make reservation</button>
+</form>
