@@ -33,9 +33,11 @@ namespace FloLab.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = @"Server=(localdb)\MSSQLLocalDb;Database=FloLabDb;Trusted_Connection=True;ConnectRetryCount=0";
-            services.AddDbContext<FloLabContext>
-                (options => options.UseSqlServer(connection));
+			//var connection = @"Server=(localdb)\MSSQLLocalDb;Database=FloLabDb;Trusted_Connection=True;ConnectRetryCount=0";
+			//services.AddDbContext<FloLabContext>
+			//    (options => options.UseSqlServer(connection));
+
+			services.AddDbContext<FloLabContext>(opts => opts.UseInMemoryDatabase(databaseName: "FloLabDb"));
 
             services.AddIdentity<User, IdentityRole>(config =>
                 {
@@ -80,7 +82,7 @@ namespace FloLab.Web
 
             services.AddScoped<IRepository<User>, Repository<User>>();
             services.AddScoped<IRepository<UserDay>, Repository<UserDay>>();
-            services.AddScoped<IRepository<Reservation>, Repository<Reservation>>();
+            services.AddScoped<IRepository<Booking>, Repository<Booking>>();
             services.AddScoped<IRepository<Attendance>, Repository<Attendance>>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IUserService, UserService>();

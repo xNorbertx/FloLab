@@ -1,0 +1,242 @@
+﻿<div class="container">
+    <div id="week-calendar-title-field">
+        <span *ngIf="currentWeek===week&&currentYear===year" class="left disabled">&#9664;</span>
+        <span *ngIf="currentWeek!==week||currentYear!==year"
+              class="left"
+              (click)="changeWeek(-7);"
+              (mouseenter)="fillInnerHtml($event, '&#9664;')"
+              (mouseleave)="fillInnerHtml($event, '&#9665;')">&#9665;</span>
+        <span *ngIf="week">Week {{week}} ({{year}})</span>
+        <span class="right"
+              (click)="changeWeek(7);"
+              (mouseenter)="fillInnerHtml($event, '&#9654;')"
+              (mouseleave)="fillInnerHtml($event, '&#9655;')">&#9655;</span>
+    </div>
+    <div id="week-calendar-wrapper">
+        <div class="hour-wrapper">
+            <div></div>
+            <div>08</div>
+            <div>09</div>
+            <div>10</div>
+            <div>11</div>
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+            <div>17</div>
+            <div>18</div>
+            <div>19</div>
+        </div>
+
+        <div class="minute-wrapper">
+            <div></div>
+            <div>:00</div>
+            <div>:30</div>
+            <div>:00</div>
+            <div>:30</div>
+            <div>:00</div>
+            <div>:30</div>
+            <div>:00</div>
+            <div>:30</div>
+            <div>:00</div>
+            <div>:30</div>
+            <div>:00</div>
+            <div>:30</div>
+            <div>:00</div>
+            <div>:30</div>
+            <div>:00</div>
+            <div>:30</div>
+            <div>:00</div>
+            <div>:30</div>
+            <div>:00</div>
+            <div>:30</div>
+            <div>:00</div>
+            <div>:30</div>
+            <div>:00</div>
+            <div>:30</div>
+        </div>
+
+        <div class="day-wrapper" id="day-wrapper-1">
+            <div class="day-display">Mo <br> {{weekDays[0]}}</div>
+            <div class="time-field" id="8"></div>
+            <div class="time-field" id="8.5"></div>
+            <div class="time-field" id="9"></div>
+            <div class="time-field" id="9.5"></div>
+            <div class="time-field" id="10"></div>
+            <div class="time-field" id="10.5"></div>
+            <div class="time-field" id="11"></div>
+            <div class="time-field" id="11.5"></div>
+            <div class="time-field" id="12"></div>
+            <div class="time-field" id="12.5"></div>
+            <div class="time-field" id="13"></div>
+            <div class="time-field" id="13.5"></div>
+            <div class="time-field" id="14"></div>
+            <div class="time-field" id="14.5"></div>
+            <div class="time-field" id="15"></div>
+            <div class="time-field" id="15.5"></div>
+            <div class="time-field" id="16"></div>
+            <div class="time-field" id="16.5"></div>
+            <div class="time-field" id="17"></div>
+            <div class="time-field" id="17.5"></div>
+            <div class="time-field" id="18"></div>
+            <div class="time-field" id="18.5"></div>
+        </div>
+
+        <div class="day-wrapper" id="day-wrapper-2">
+            <div class="day-display">Tu <br> {{weekDays[1]}}</div>
+            <div class="time-field" id="8"></div>
+            <div class="time-field" id="8.5"></div>
+            <div class="time-field" id="9"></div>
+            <div class="time-field" id="9.5"></div>
+            <div class="time-field" id="10"></div>
+            <div class="time-field" id="10.5"></div>
+            <div class="time-field" id="11"></div>
+            <div class="time-field" id="11.5"></div>
+            <div class="time-field" id="12"></div>
+            <div class="time-field" id="12.5"></div>
+            <div class="time-field" id="13"></div>
+            <div class="time-field" id="13.5"></div>
+            <div class="time-field" id="14"></div>
+            <div class="time-field" id="14.5"></div>
+            <div class="time-field" id="15"></div>
+            <div class="time-field" id="15.5"></div>
+            <div class="time-field" id="16"></div>
+            <div class="time-field" id="16.5"></div>
+            <div class="time-field" id="17"></div>
+            <div class="time-field" id="17.5"></div>
+            <div class="time-field" id="18"></div>
+            <div class="time-field" id="18.5"></div>
+        </div>
+
+        <div class="day-wrapper" id="day-wrapper-3">
+            <div class="day-display">We <br> {{weekDays[2]}}</div>
+            <div class="time-field" id="8"></div>
+            <div class="time-field" id="8.5"></div>
+            <div class="time-field" id="9"></div>
+            <div class="time-field" id="9.5"></div>
+            <div class="time-field" id="10"></div>
+            <div class="time-field" id="10.5"></div>
+            <div class="time-field" id="11"></div>
+            <div class="time-field" id="11.5"></div>
+            <div class="time-field" id="12"></div>
+            <div class="time-field" id="12.5"></div>
+            <div class="time-field" id="13"></div>
+            <div class="time-field" id="13.5"></div>
+            <div class="time-field" id="14"></div>
+            <div class="time-field" id="14.5"></div>
+            <div class="time-field" id="15"></div>
+            <div class="time-field" id="15.5"></div>
+            <div class="time-field" id="16"></div>
+            <div class="time-field" id="16.5"></div>
+            <div class="time-field" id="17"></div>
+            <div class="time-field" id="17.5"></div>
+            <div class="time-field" id="18"></div>
+            <div class="time-field" id="18.5"></div>
+        </div>
+
+        <div class="day-wrapper" id="day-wrapper-4">
+            <div class="day-display">Th <br> {{weekDays[3]}}</div>
+            <div class="time-field" id="8"></div>
+            <div class="time-field" id="8.5"></div>
+            <div class="time-field" id="9"></div>
+            <div class="time-field" id="9.5"></div>
+            <div class="time-field" id="10"></div>
+            <div class="time-field" id="10.5"></div>
+            <div class="time-field" id="11"></div>
+            <div class="time-field" id="11.5"></div>
+            <div class="time-field" id="12"></div>
+            <div class="time-field" id="12.5"></div>
+            <div class="time-field" id="13"></div>
+            <div class="time-field" id="13.5"></div>
+            <div class="time-field" id="14"></div>
+            <div class="time-field" id="14.5"></div>
+            <div class="time-field" id="15"></div>
+            <div class="time-field" id="15.5"></div>
+            <div class="time-field" id="16"></div>
+            <div class="time-field" id="16.5"></div>
+            <div class="time-field" id="17"></div>
+            <div class="time-field" id="17.5"></div>
+            <div class="time-field" id="18"></div>
+            <div class="time-field" id="18.5"></div>
+        </div>
+
+        <div class="day-wrapper" id="day-wrapper-5">
+            <div class="day-display">Fr <br> {{weekDays[5]}}</div>
+            <div class="time-field" id="8"></div>
+            <div class="time-field" id="8.5"></div>
+            <div class="time-field" id="9"></div>
+            <div class="time-field" id="9.5"></div>
+            <div class="time-field" id="10"></div>
+            <div class="time-field" id="10.5"></div>
+            <div class="time-field" id="11"></div>
+            <div class="time-field" id="11.5"></div>
+            <div class="time-field" id="12"></div>
+            <div class="time-field" id="12.5"></div>
+            <div class="time-field" id="13"></div>
+            <div class="time-field" id="13.5"></div>
+            <div class="time-field" id="14"></div>
+            <div class="time-field" id="14.5"></div>
+            <div class="time-field" id="15"></div>
+            <div class="time-field" id="15.5"></div>
+            <div class="time-field" id="16"></div>
+            <div class="time-field" id="16.5"></div>
+            <div class="time-field" id="17"></div>
+            <div class="time-field" id="17.5"></div>
+            <div class="time-field" id="18"></div>
+            <div class="time-field" id="18.5"></div>
+        </div>
+
+        <div class="day-wrapper" id="day-wrapper-6">
+            <div class="day-display">Sa <br> {{weekDays[6]}}</div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="day-wrapper" id="day-wrapper-7">
+            <div class="day-display">Su <br> {{weekDays[6]}}</div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>

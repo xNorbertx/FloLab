@@ -11,7 +11,7 @@ namespace FloLab.Core.Entities
 
         public int RoleId { get; set; }
         public int? SubscriptionId { get; set; }        
-        public List<Reservation> Reservations { get; set; }
+        public List<Booking> Bookings { get; set; }
         public List<UserDay> UserDays { get; set; }
         public List<Attendance> Attendances { get; set; }
     }

@@ -12,6 +12,6 @@ namespace FloLab.Core.Entities
         [Required]
         public string Name { get; set; }
 
-        public List<Reservation> Reservations { get; set; }
+        public List<Booking> Bookings { get; set; }
     }
 }

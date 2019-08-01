@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../#services/auth/auth.service';
-import { AttendanceService } from '../#services/attendance/attendance.service';
+import { AuthService } from '../_services/auth/auth.service';
+import { AttendanceService } from '../_services/attendance/attendance.service';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         if (role === "User") {
           this.route.navigate(['/start']);
         } else if (role === "Admin") {
-          //Todo: build admin pages
+          this.route.navigate(['/admin']);
         } else {
           //Todo: don't leave this as an alert message
           alert('Not allowed to log in');
@@ -51,10 +51,17 @@ export class LoginComponent implements OnInit {
   }
 
   //Todo: REMOVE WHEN DONE WITH DEVELOPMENT
-  prefillUser(): void {
-    this.loginForm.setValue({
-      email: 'norbert.g.e.bakker@gmail.com',
-      password: 'Telefoon06!'
-    });
-  }
+    prefillUser(): void {
+        this.loginForm.setValue({
+            email: 'norbert.g.e.bakker@gmail.com',
+            password: 'Telefoon06!'
+        });
+    }
+
+    prefillAdmin(): void {
+        this.loginForm.setValue({
+            email: 'admin@flolab.nl',
+            password: 'LiveLoveLaugh123!'
+        });
+    }
 }

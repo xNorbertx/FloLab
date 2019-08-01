@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FloLab.Core.Entities
 {
-    public class Reservation
+    public class Booking
     {
         [Key]
         public int Id { get; set; }

@@ -1,32 +1,40 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Months } from '../calendar/util-calendar';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
-import { BookingService } from '../#services/booking/booking.service';
+﻿import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Months } from '../_util/months';
+import '../_util/date.extensions';
+import { AuthService } from '../_services/auth/auth.service';
+import { BookingService } from '../_services/booking/booking.service';
+import { Selection } from '../_models/selection';
+import { WeekCalendarComponent } from '../week-calendar/week-calendar.component';
+
 
 @Component({
   selector: 'booking',
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.scss']
 })
-export class BookingComponent implements OnInit {
-  private _nrDatesSelected: number;
-  @Input() set nrDatesSelected(value: number) {
-    this._nrDatesSelected = value;
-  }
-  get nrDatesSelected(): number {
-    return this._nrDatesSelected;
-  }
+export class BookingComponent implements AfterViewInit {
 
-  constructor (
-    private formBuilder: FormBuilder,
-    private bookingService: BookingService
-  ) { }
+    @ViewChild(WeekCalendarComponent) weekCalendar;
+    
+    bookings: Selection[];
 
-  ngOnInit() {
-    this.bookingService.createForm();
-  }
+    constructor (
+        private bookingService: BookingService,
+        private auth: AuthService
+    ) { }
 
-  finishBooking(): void {
+    ngAfterViewInit() {
+        this.getBookings();
+    }
 
-  }
+    getBookings() {
+        this.bookingService.getBookingsPerWeek(this.weekCalendar.year, this.weekCalendar.week).subscribe(
+            data => {
+                this.bookings = data;
+            },
+            err => {
+                console.log(err);
+            }
+        );
+    }
 }

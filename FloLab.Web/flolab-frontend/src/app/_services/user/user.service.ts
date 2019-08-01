@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+﻿import { Injectable } from '@angular/core';
 
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ErrorService } from '../Error/error.service';
+import { ErrorService } from '../error/error.service';
 import { catchError, map } from 'rxjs/operators';
 
 const httpOptions = {

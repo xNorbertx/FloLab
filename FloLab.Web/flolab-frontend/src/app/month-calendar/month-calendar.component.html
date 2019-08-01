@@ -1,0 +1,71 @@
+<div class="calendar-container">
+    <div class="month-display">
+        <span *ngIf="currentMonth===month" class="left disabled">&#9664;</span>
+        <span *ngIf="currentMonth!==month"
+              class="left"
+              (click)="previousMonth(month, year)"
+              (mouseenter)="fillInnerHtml($event, '&#9664;')"
+              (mouseleave)="fillInnerHtml($event, '&#9665;')">&#9665;</span>
+        <span>{{monthDisplay}} ({{year}})</span>
+        <span class="right"
+              (click)="nextMonth(month, year)"
+              (mouseenter)="fillInnerHtml($event, '&#9654;')"
+              (mouseleave)="fillInnerHtml($event, '&#9655;')">&#9655;</span>
+    </div>
+
+    <div>Mo</div>
+    <div>Tu</div>
+    <div>We</div>
+    <div>Th</div>
+    <div>Fr</div>
+    <div>Sa</div>
+    <div>Su</div>
+
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+    <div class="date-field"></div>
+</div>

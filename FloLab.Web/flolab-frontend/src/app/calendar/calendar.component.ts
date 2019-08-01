@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Months } from './util-calendar';
-import { BookingService } from '../#services/booking/booking.service';
-import { UserService } from '../#services/user/user.service';
-import { AuthService } from '../#services/auth/auth.service';
-import { Reservation } from '../#models/reservation';
-import { AttendanceService } from '../#services/attendance/attendance.service';
-import { ModalService } from '../#services/modal/modal.service';
+﻿import { Component, OnInit } from '@angular/core';
+import { Months } from '../_util/months';
+import { BookingService } from '../_services/booking/booking.service';
+import { UserService } from '../_services/user/user.service';
+import { AuthService } from '../_services/auth/auth.service';
+import { AttendanceService } from '../_services/attendance/attendance.service';
+import { ModalService } from '../_services/modal/modal.service';
 
 @Component({
   selector: 'app-calendar',
@@ -13,24 +12,22 @@ import { ModalService } from '../#services/modal/modal.service';
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-  monthDisplay: string;
-  month: number;
-  currentMonth: number;
-  year: number;
-  numberOfDatesSelected: number;
-  selectedDates: string[];
+    monthDisplay: string;
+    month: number;
+    currentMonth: number;
+    year: number;
+    numberOfDatesSelected: number;
+    selectedDates: string[];
 
-  reservations: Reservation[];
+    userDays: number[];
 
-  userDays: number[];
-
-  constructor(
-    private bookingService: BookingService,
-    private userService: UserService,
-    private authService: AuthService,
-    private attendanceService: AttendanceService,
-    private modal: ModalService
-  ) { }
+    constructor(
+        private bookingService: BookingService,
+        private userService: UserService,
+        private authService: AuthService,
+        private attendanceService: AttendanceService,
+        private modal: ModalService
+    ) { }
 
   ngOnInit() {
     const userId = this.authService.getId();
@@ -110,15 +107,6 @@ export class CalendarComponent implements OnInit {
   setActiveDate(e): void {
 
     this.modal.showModal();
-    
-    //const selectedDate = `${e.target.innerHTML}-${this.month}-${this.year}`;
-    //if (e.target.classList.contains('selected')) {
-    //  e.target.classList.remove('selected');
-    //  this.bookingService.removeBookingDate(selectedDate);
-    //} else {
-    //  e.target.classList.add('selected');
-    //  this.bookingService.addBookingDate(selectedDate);
-    //}
   }
 
   /* Handle next or previous month button click */
@@ -148,10 +136,7 @@ export class CalendarComponent implements OnInit {
   daysInMonth(month: number, year: number) {
     return 32 - new Date(year, month, 32).getDate();
   }
-
-  fillInnerHtml(el: MouseEvent, utf8code: string) {
-    el.srcElement.innerHTML = utf8code;
-  }
+   
 
   clearInnerHTML = fields => {
     var i = 0;

@@ -12,7 +12,7 @@ namespace FloLab.Infrastructure.Data
         public DbSet<User> ApplicationUsers { get; set; }
         public DbSet<Role> ApplicationRoles { get; set; }
         public DbSet<Subscription> Subscriptions { get; set; }
-        public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<Space> Spaces { get; set; }
         public DbSet<UserDay> UserDays { get; set; }

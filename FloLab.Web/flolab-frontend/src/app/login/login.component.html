@@ -1,4 +1,5 @@
 <input type="button" value="prefill user" (click)="prefillUser();" />
+<input type="button" value="prefill admin" (click)="prefillAdmin();" />
 <form [formGroup]="loginForm" (ngSubmit)="login();" class="fl-login-form">
   <div class="row-half centered">
     <input id="login__email" formControlName="email" type="email" placeholder="Email"/>

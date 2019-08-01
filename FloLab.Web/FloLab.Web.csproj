@@ -13,7 +13,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.App">
+      <PrivateAssets Condition="'%(PackageReference.Version)' == ''">all</PrivateAssets>
+      <Publish Condition="'%(PackageReference.Version)' == ''">true</Publish>
+    </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
@@ -26,6 +29,10 @@
     <Content Remove="$(SpaRoot)**" />
     <Content Remove="flolab-frontend\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+    <None Include="flolab-frontend\src\app\week-calendar\week-calendar.component.html" />
+    <None Include="flolab-frontend\src\app\week-calendar\week-calendar.component.scss" />
+    <None Include="flolab-frontend\src\app\week-calendar\week-calendar.component.html" />
+    <None Include="flolab-frontend\src\app\week-calendar\week-calendar.component.scss" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,8 +50,12 @@
     <Content Include="flolab-frontend\package-lock.json" />
     <Content Include="flolab-frontend\package.json" />
     <Content Include="flolab-frontend\src\app\app.component.html" />
+    <Content Include="flolab-frontend\src\app\admin\admin.component.html" />
     <Content Include="flolab-frontend\src\app\booking\booking.component.html" />
     <Content Include="flolab-frontend\src\app\calendar\calendar.component.html" />
+    <Content Include="flolab-frontend\src\app\week-calendar\week-calendar.component.html" />
+    <Content Include="flolab-frontend\src\app\month-calendar\month-calendar.component.html" />
+    <Content Include="flolab-frontend\src\app\new-user\new-user.component.html" />
     <Content Include="flolab-frontend\src\app\events\events.component.html" />
     <Content Include="flolab-frontend\src\app\login\login.component.html" />
     <Content Include="flolab-frontend\src\app\menubar\menubar.component.html" />
@@ -63,8 +74,12 @@
     <None Include="flolab-frontend\e2e\protractor.conf.js" />
     <None Include="flolab-frontend\README.md" />
     <None Include="flolab-frontend\src\app\app.component.scss" />
+    <None Include="flolab-frontend\src\app\admin\admin.component.scss" />
     <None Include="flolab-frontend\src\app\booking\booking.component.scss" />
     <None Include="flolab-frontend\src\app\calendar\calendar.component.scss" />
+    <None Include="flolab-frontend\src\app\week-calendar\week-calendar.component.scss" />
+    <None Include="flolab-frontend\src\app\month-calendar\month-calendar.component.scss" />
+    <None Include="flolab-frontend\src\app\new-user\new-user.component.scss" />
     <None Include="flolab-frontend\src\app\events\events.component.scss" />
     <None Include="flolab-frontend\src\app\forms.scss" />
     <None Include="flolab-frontend\src\app\login\login.component.scss" />
@@ -84,34 +99,38 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Remove="flolab-frontend\src\app\#services\booking\booking.service.spec.ts" />
+  </ItemGroup>
+  <ItemGroup>
     <TypeScriptCompile Include="flolab-frontend\e2e\src\app.e2e-spec.ts" />
     <TypeScriptCompile Include="flolab-frontend\e2e\src\app.po.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#models\attendance.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#models\login.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#models\reservation.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#services\attendance\attendance.service.spec.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#services\attendance\attendance.service.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#services\error\error.service.spec.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#services\error\error.service.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#services\auth\auth.service.spec.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#services\auth\auth.service.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#services\modal\modal.service.spec.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#services\modal\modal.service.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#services\reservation\reservation.service.spec.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#services\reservation\reservation.service.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#services\user\user.service.spec.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#services\user\user.service.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_models\attendance.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_models\login.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_models\selection.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_services\attendance\attendance.service.spec.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_services\attendance\attendance.service.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_services\error\error.service.spec.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_services\error\error.service.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_services\auth\auth.service.spec.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_services\auth\auth.service.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_services\modal\modal.service.spec.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_services\modal\modal.service.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_services\booking\booking.service.spec.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_services\booking\booking.service.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_services\user\user.service.spec.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_services\user\user.service.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\app-routing.module.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\app.component.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\app.module.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\admin\admin.component.spec.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\admin\admin.component.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\booking\booking.component.spec.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\booking\booking.component.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#services\booking\booking.service.spec.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\#services\booking\booking.service.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\calendar\calendar.component.spec.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\calendar\calendar.component.ts" />
-    <TypeScriptCompile Include="flolab-frontend\src\app\calendar\util-calendar.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\month-calendar\month-calendar.component.spec.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\month-calendar\month-calendar.component.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\events\events.component.spec.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\events\events.component.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\login\login.component.spec.ts" />
@@ -120,6 +139,8 @@
     <TypeScriptCompile Include="flolab-frontend\src\app\menubar\menubar.component.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\modal\modal.component.spec.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\modal\modal.component.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\new-user\new-user.component.spec.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\new-user\new-user.component.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\start\start.component.spec.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\start\start.component.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\app\_guard\role-guard\role-guard.service.spec.ts" />
@@ -129,10 +150,18 @@
     <TypeScriptCompile Include="flolab-frontend\src\main.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\polyfills.ts" />
     <TypeScriptCompile Include="flolab-frontend\src\test.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_util\months.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_util\date.extensions.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\_models\returnMessage.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\week-calendar\week-calendar.component.spec.ts" />
+    <TypeScriptCompile Include="flolab-frontend\src\app\week-calendar\week-calendar.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="flolab-frontend\src\assets\images\" />
+    <Folder Include="flolab-frontend\src\app\_util\" />
+    <Folder Include="flolab-frontend\src\app\week-calendar\" />
+    <Folder Include="flolab-frontend\src\app\month-calendar\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -18,11 +18,8 @@ namespace FloLab.Infrastructure.Data
 
             InitializeSpace(context);
             await InitializeSubscriptions(context, userTask, userManager);
-            InitializeReservations(context, userTask);
-            InitializeAttendance(context, userTask);
-            
-
-            //Add attendance in initialization and later as controller and service
+            InitializeBookings(context, userTask);
+            InitializeAttendance(context, userTask);            
         }
 
         private static async Task InitializeRoles(RoleManager<IdentityRole> roleManager)
@@ -171,37 +168,37 @@ namespace FloLab.Infrastructure.Data
             }
         } 
 
-        private static void InitializeReservations(FloLabContext context, User user)
+        private static void InitializeBookings(FloLabContext context, User user)
         {
             Space space = context.Spaces.Where(x => x.Name.Equals("Sun Room")).First();
 
-            if (context.Reservations.Where(x => x.UserId.Equals(user.Id)).Count() == 0)
+            if (context.Bookings.Where(x => x.UserId.Equals(user.Id)).Count() == 0)
             {
-                Reservation reservationOne = new Reservation
+                Booking bookingOne = new Booking
                 {
-                    Start = new DateTime(2019, 6, 28, 12, 0, 0),
-                    End = new DateTime(2019, 6, 28, 14, 0, 0),
+                    Start = new DateTime(2019, 7, 29, 12, 0, 0),
+                    End = new DateTime(2019, 7, 29, 14, 0, 0),
                     UserId = user.Id,
                     SpaceId = space.Id
                 };
 
-                Reservation reservationTwo = new Reservation
+                Booking bookingTwo = new Booking
                 {
-                    Start = new DateTime(2019, 6, 26, 12, 0, 0),
-                    End = new DateTime(2019, 6, 26, 13, 0, 0),
+                    Start = new DateTime(2019, 7, 30, 12, 0, 0),
+                    End = new DateTime(2019, 7, 30, 13, 0, 0),
                     UserId = user.Id,
                     SpaceId = space.Id
                 };
 
-                Reservation reservationThree = new Reservation
+                Booking bookingThree = new Booking
                 {
-                    Start = new DateTime(2019, 6, 24, 9, 0, 0),
-                    End = new DateTime(2019, 6, 24, 12, 0, 0),
+                    Start = new DateTime(2019, 7, 31, 9, 0, 0),
+                    End = new DateTime(2019, 7, 31, 12, 0, 0),
                     UserId = user.Id,
                     SpaceId = space.Id
                 };
 
-                context.Reservations.AddRange(reservationOne, reservationTwo, reservationThree);
+                context.Bookings.AddRange(bookingOne, bookingTwo, bookingThree);
                 context.SaveChanges();
             }
         }
@@ -212,19 +209,19 @@ namespace FloLab.Infrastructure.Data
             {
                 Attendance attendanceOne = new Attendance
                 {
-                    Date = new DateTime(2019, 6, 28),
+                    Date = new DateTime(2019, 7, 29),
                     UserId = user.Id
                 };
 
                 Attendance attendanceTwo = new Attendance
                 {
-                    Date = new DateTime(2019, 6, 26),
+                    Date = new DateTime(2019, 7, 30),
                     UserId = user.Id
                 };
 
                 Attendance attendanceThree = new Attendance
                 {
-                    Date = new DateTime(2019, 6, 24),
+                    Date = new DateTime(2019, 7, 31),
                     UserId = user.Id
                 };
 

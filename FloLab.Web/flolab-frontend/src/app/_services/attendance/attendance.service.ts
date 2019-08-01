@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Attendance } from '../../#models/attendance';
+﻿import { Injectable } from '@angular/core';
+import { Attendance } from '../../_models/attendance';
 import { Observable } from 'rxjs';
-import { ErrorService } from '../Error/error.service';
+import { ErrorService } from '../error/error.service';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 

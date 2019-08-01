@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+﻿import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
-import { Login } from '../../#models/login';
+import { Login } from '../../_models/login';
 import { Observable } from 'rxjs';
-import { ErrorService } from '../Error/error.service';
+import { ErrorService } from '../error/error.service';
 import decode from 'jwt-decode';
 import { JwtHelperService } from '@auth0/angular-jwt';
 

@@ -1,0 +1,67 @@
+﻿@import '../variables.scss';
+
+.container {
+    display: grid;
+    min-height: 400px;
+    height: auto;
+    width: 800px;
+    grid-template-rows: 25px auto;
+    background-color: $fl-teal;
+    border: 3px solid $fl-broken-white;
+
+    #week-calendar-title-field {
+        grid-column: 1 / span 8;
+        background-color: $fl-dark-teal;
+        text-align: center;
+        position: relative;
+
+        span.left {
+            position: absolute;
+            left: 5px;
+            font-size: 20px;
+        }
+
+        span.right {
+            position: absolute;
+            right: 5px;
+            font-size: 20px;
+        }
+
+        span.left:hover, span.right:hover {
+            cursor: pointer;
+        }
+
+        span.disabled {
+            color: $fl-disabled;
+        }
+    }
+
+    #week-calendar-wrapper {
+        display: grid;
+        grid-template-columns: 15px 25px repeat(7, 100px);
+
+        .hour-wrapper {
+            display: grid;
+            grid-template-rows: 50px repeat(12, 30px);
+        }
+
+        .minute-wrapper {
+            display: grid;
+            grid-template-rows: 50px repeat(24, 15px);
+        }
+
+        .day-wrapper {
+            display: grid;
+            grid-template-rows: 50px repeat(24, 15px);
+
+            div.selected {
+                background-color: yellow;
+            }
+
+            div.active:hover {
+                cursor: pointer;
+                background-color: $fl-dark-teal;
+            }
+        }
+    }
+}
